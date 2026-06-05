@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d41317bbc5b15e4480e5e2d3086e8da, type: 3}
+  m_Name: EspadaAlien
+  m_EditorClassIdentifier: Assembly-CSharp::DatosArma
+  nombreArma: "Mandoble Alien\xEDgena"
+  iconoTienda: {fileID: 21300000, guid: df3e62526f9604c43b61a1f4e8a45b81, type: 3}
+  prefabModelo: {fileID: 9190878331159525150, guid: b3cd2566aa211eb4281eca3458e7929a, type: 3}
+  dano: 25
+  ataquesPorSegundo: 2.5
+  probabilidadCritico: 1
+  multiplicadorCritico: 2
+  costeEnTienda: 0
+  esArmaTroll: 1
+  probabilidadReboteMortal: 0.25
