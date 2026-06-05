@@ -19,6 +19,6 @@ MonoBehaviour:
   ataquesPorSegundo: 2.5
   probabilidadCritico: 1
   multiplicadorCritico: 2
-  costeEnTienda: 0
+  costeEnTienda: 650
   esArmaTroll: 1
-  probabilidadReboteMortal: 0.25
+  probabilidadReboteMortal: 0.2

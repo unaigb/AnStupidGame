@@ -19,13 +19,31 @@ public class BotonTienda : MonoBehaviour
 
     void Awake()
     {
-        // 1. OBLIGAMOS A LA TARJETA A BUSCAR A SUS PROPIOS HIJOS POR SU NOMBRE EXACTO
-        textoNombre = transform.Find("TextoNombre").GetComponent<TextMeshProUGUI>();
-        imagenEspada = transform.Find("ImagenEspada").GetComponent<Image>();
-        textoEstadisticas = transform.Find("TextoEstadisticas").GetComponent<TextMeshProUGUI>();
+        Transform tNombre = transform.Find("TextoNombre");
+        if (tNombre != null) textoNombre = tNombre.GetComponent<TextMeshProUGUI>();
+        else Debug.LogError($"[Tienda] Falta el objeto hijo 'TextoNombre' en el botón: {gameObject.name}", gameObject);
 
-        botonCompra = transform.Find("BotonComprar").GetComponent<Button>();
-        textoBotonCompra = botonCompra.transform.Find("TextoPrecio").GetComponent<TextMeshProUGUI>();
+        Transform tImagen = transform.Find("ImagenEspada");
+        if (tImagen != null) imagenEspada = tImagen.GetComponent<Image>();
+        else Debug.LogError($"[Tienda] Falta el objeto hijo 'ImagenEspada' en el botón: {gameObject.name}", gameObject);
+
+        Transform tEstadisticas = transform.Find("TextoEstadisticas");
+        if (tEstadisticas != null) textoEstadisticas = tEstadisticas.GetComponent<TextMeshProUGUI>();
+        else Debug.LogError($"[Tienda] Falta el objeto hijo 'TextoEstadisticas' en el botón: {gameObject.name}", gameObject);
+
+        Transform tBoton = transform.Find("BotonComprar");
+        if (tBoton != null)
+        {
+            botonCompra = tBoton.GetComponent<Button>();
+
+            Transform tPrecio = botonCompra.transform.Find("TextoPrecio");
+            if (tPrecio != null) textoBotonCompra = tPrecio.GetComponent<TextMeshProUGUI>();
+            else Debug.LogError($"[Tienda] Falta el objeto hijo 'TextoPrecio' dentro de BotonComprar en: {gameObject.name}", gameObject);
+        }
+        else
+        {
+            Debug.LogError($"[Tienda] Falta el objeto hijo 'BotonComprar' en el botón: {gameObject.name}", gameObject);
+        }
     }
 
     void Start()

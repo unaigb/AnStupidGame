@@ -6,6 +6,7 @@ public class GestorJuego : MonoBehaviour
 
     [Header("Estadísticas del Jugador")]
     public int monedas = 0;
+    public int monedasTotalesGanadas = 0;
     public int golpesTotales = 0;
     public float danoTotal = 0f;
 
@@ -24,7 +25,6 @@ public class GestorJuego : MonoBehaviour
     [Header("Estado de la Partida")]
     public bool jugadorMuerto = false;
 
-    // Metas ocultas para recompensas
     private int metaGolpes = 10;
     private float metaDano = 10f;
 
@@ -58,12 +58,13 @@ public class GestorJuego : MonoBehaviour
 
         if (GestorLogros.Instance != null) GestorLogros.Instance.ComprobarMonedas();
 
-        return monedasGanadas; // Devolvemos lo que hemos ganado
+        return monedasGanadas;
     }
 
     public void AnadirMonedas(int cantidad)
     {
         monedas += cantidad;
+        monedasTotalesGanadas += cantidad;
         Debug.Log($"Has ganado {cantidad} monedas. Total: {monedas}");
         FindAnyObjectByType<UIJuego>().ActualizarHUD();
         if (GestorLogros.Instance != null) GestorLogros.Instance.ComprobarMonedas();
@@ -109,5 +110,10 @@ public class GestorJuego : MonoBehaviour
         {
             ui.MostrarPantallaMuerte(causa);
         }
+    }
+
+    public void RecalcularMetas()
+    {
+        metaGolpes = ((golpesTotales / 10) + 1) * 10;
     }
 }

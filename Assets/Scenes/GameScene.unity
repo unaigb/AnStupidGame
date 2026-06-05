@@ -1981,13 +1981,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132911305}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.6427876, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: 0.554, y: -0.716, z: 0.544}
+  m_LocalRotation: {x: 0, y: -0.7660445, z: 0, w: 0.64278764}
+  m_LocalPosition: {x: 0.55399954, y: -0.7160001, z: 0.5439998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1114086742}
-  m_LocalEulerAnglesHint: {x: 0, y: 80, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -100, z: 0}
 --- !u!95 &132911307
 Animator:
   serializedVersion: 7
@@ -15565,7 +15565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.007385254, y: -60.08}
+  m_AnchoredPosition: {x: -0.0073242188, y: -60.080017}
   m_SizeDelta: {x: -1125.0718, y: -257.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &698432258
@@ -20355,6 +20355,22 @@ PrefabInstance:
       propertyPath: armaQueVende
       value: 
       objectReference: {fileID: 11400000, guid: d6a5074841864fd409e32b7878bcafd2, type: 2}
+    - target: {fileID: 3898336049121223509, guid: 63cee9ca36127954fa7b49774bffe4dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3898336049121223509, guid: 63cee9ca36127954fa7b49774bffe4dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3898336049121223509, guid: 63cee9ca36127954fa7b49774bffe4dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1076189521}
+    - target: {fileID: 3898336049121223509, guid: 63cee9ca36127954fa7b49774bffe4dd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6439806361885851248, guid: 63cee9ca36127954fa7b49774bffe4dd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -26035,6 +26051,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3339453718160641392, guid: e75203ad640d6aa4890f0c17e26e0046, type: 3}
   m_PrefabInstance: {fileID: 1072185911}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1076189521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1020929357541646277, guid: 63cee9ca36127954fa7b49774bffe4dd, type: 3}
+  m_PrefabInstance: {fileID: 1000461576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1079557420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28323,6 +28344,7 @@ GameObject:
   - component: {fileID: 1249666445}
   - component: {fileID: 1249666447}
   - component: {fileID: 1249666446}
+  - component: {fileID: 1249666449}
   - component: {fileID: 1249666448}
   m_Layer: 0
   m_Name: GestorJuego
@@ -28359,6 +28381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GestorJuego
   monedas: 0
+  monedasTotalesGanadas: 0
   golpesTotales: 0
   danoTotal: 0
   altavozUI: {fileID: 1249666447}
@@ -28548,7 +28571,7 @@ MonoBehaviour:
     esOculto: 0
   - id: diosa_fortuna
     titulo: Diosa de la Fortuna
-    descripcion: "Asesta 20 golpes cr\xEDticos seguidos. "
+    descripcion: "Asesta 10 golpes cr\xEDticos seguidos. "
     desbloqueado: 0
     icono: {fileID: -344384788, guid: 7af080aee74a22f4ea96c5973141f463, type: 3}
     esOculto: 0
@@ -28584,6 +28607,18 @@ MonoBehaviour:
     esOculto: 0
   altavozLogros: {fileID: 1249666447}
   sonidoLogroDesbloqueado: {fileID: 8300000, guid: 6d6e4f255ef6d41469a677f451e5cd0b, type: 3}
+--- !u!114 &1249666449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249666443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd54174aafc2ba04882375d83adebd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SistemaGuardado
 --- !u!1001 &1252553624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40885,7 +40920,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 12.85901
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4064561105264795001, guid: 63cee9ca36127954fa7b49774bffe4dd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

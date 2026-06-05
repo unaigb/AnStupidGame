@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 5080566392874674074}
   - component: {fileID: 7405063764098232446}
   - component: {fileID: 3898336049121223509}
-  - component: {fileID: 4064561105264795001}
   m_Layer: 5
   m_Name: BotonComprar
   m_TagString: Untagged
@@ -216,20 +215,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4064561105264795001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263572137545181373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aae180aa8aecea4fbac8b8cc5d85c8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BotonTienda
-  armaQueVende: {fileID: 11400000, guid: 07dda7e3040585040837dbdd89dbdeda, type: 2}
-  yaComprada: 0
 --- !u!1 &2137068473509496276
 GameObject:
   m_ObjectHideFlags: 0

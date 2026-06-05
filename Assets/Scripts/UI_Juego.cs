@@ -29,6 +29,8 @@ public class UIJuego : MonoBehaviour
 
     private FirstPersonController fpsController;
 
+    private StarterAssetsInputs fpsInputs;
+
     void Start()
     {
         if (panelTienda != null) panelTienda.SetActive(false);
@@ -37,6 +39,8 @@ public class UIJuego : MonoBehaviour
         if (panelPausa != null) panelPausa.SetActive(false);
 
         fpsController = FindFirstObjectByType<FirstPersonController>();
+        fpsInputs = FindFirstObjectByType<StarterAssetsInputs>();
+
         ActualizarHUD();
         Time.timeScale = 1f;
 
@@ -112,7 +116,6 @@ public class UIJuego : MonoBehaviour
 
     public void ToggleLogros()
     {
-        // Si la tienda está abierta, la cerramos primero
         if (tiendaAbierta) CerrarTiendaSilencioso();
 
         logrosAbierto = !logrosAbierto;
@@ -120,7 +123,6 @@ public class UIJuego : MonoBehaviour
 
         if (GestorJuego.Instance != null) GestorJuego.Instance.logrosAbierto = logrosAbierto;
 
-        // Al abrir, le decimos al GestorLogros que pinte el estado actual (lo crearemos en el Paso 3)
         if (logrosAbierto && GestorLogros.Instance != null)
         {
             GestorLogros.Instance.ActualizarInterfazLogros();
@@ -145,17 +147,31 @@ public class UIJuego : MonoBehaviour
 
     private void ManejarEstadoCursorYControles()
     {
-        if (tiendaAbierta || logrosAbierto)
+        if (tiendaAbierta || logrosAbierto || juegoPausado || (GestorJuego.Instance != null && GestorJuego.Instance.jugadorMuerto))
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
             if (fpsController != null) fpsController.enabled = false;
+
+            if (fpsInputs != null)
+            {
+                fpsInputs.cursorLocked = false;
+                fpsInputs.cursorInputForLook = false;
+            }
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
             if (fpsController != null) fpsController.enabled = true;
+
+            if (fpsInputs != null)
+            {
+                fpsInputs.cursorLocked = true;
+                fpsInputs.cursorInputForLook = true;
+            }
         }
     }
 

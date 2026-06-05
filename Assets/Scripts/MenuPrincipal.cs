@@ -20,6 +20,7 @@ public class MenuPrincipal : MonoBehaviour
 
     public void NuevaPartida()
     {
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("DebeCargarPartida", 0);
         SceneManager.LoadScene(nombreEscenaJuego);
     }

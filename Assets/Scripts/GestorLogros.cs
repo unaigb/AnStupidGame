@@ -99,7 +99,7 @@ public class GestorLogros : MonoBehaviour
             rachaCriticos++;
 
             if (rachaCriticos >= 3) DesbloquearLogro("trebol_hojas");
-            if (rachaCriticos >= 20) DesbloquearLogro("diosa_fortuna");
+            if (rachaCriticos >= 10) DesbloquearLogro("diosa_fortuna");
         }
         else
         {
@@ -109,7 +109,7 @@ public class GestorLogros : MonoBehaviour
 
     public void ComprobarMonedas()
     {
-        if (GestorJuego.Instance.monedas >= 1000000)
+        if (GestorJuego.Instance.monedasTotalesGanadas >= 1000000)
         {
             DesbloquearLogro("millonario");
         }
@@ -140,17 +140,22 @@ public class GestorLogros : MonoBehaviour
         BotonTienda[] todosLosBotones = Object.FindObjectsByType<BotonTienda>(FindObjectsSortMode.None);
 
         bool todoComprado = true;
+        int armasReales = 0;
 
         foreach (BotonTienda boton in todosLosBotones)
         {
-            if (!boton.yaComprada)
+            if (boton.armaQueVende != null)
             {
-                todoComprado = false;
-                break;
+                armasReales++;
+                if (!boton.yaComprada)
+                {
+                    todoComprado = false;
+                    break;
+                }
             }
         }
 
-        if (todoComprado && todosLosBotones.Length > 0)
+        if (todoComprado && armasReales > 0)
         {
             DesbloquearLogro("tienda_completa");
         }
